@@ -30,27 +30,20 @@ public class FileCopier {
      */
     public static void copyDailySheet(String sourcePath, String destinationPath, String month, String year) {
 
-        if(month.equals("April") || month.equals("June") || month.equals("September") || month.equals("November")){
-            for (int day = 1; day <= 30; day++) {
-                String formattedDay = String.format("%02d", day);
-                String fileName = formattedDay + " " + month + " " + year + ".xlsx";
-                copyFile(sourcePath, destinationPath + "/" + fileName);
-            }
+        int daysInMonth = CheckMonth.getDaysInMonth(month, year);
+
+        for (int day = 1; day <= daysInMonth; day++) {
+            String dayString = String.format("%02d", day);
+
         }
-        else if(month.equals("February")) {
-            int daysInFebruary = (Integer.parseInt(year) % 4 == 0 && Integer.parseInt(year) % 100 != 0) || (Integer.parseInt(year) % 400 == 0) ? 29 : 28;
-            for (int day = 1; day <= daysInFebruary; day++) {
-                String formattedDay = String.format("%02d", day);
-                String fileName = formattedDay + " " + month + " " + year + ".xlsx";
-                copyFile(sourcePath, destinationPath + "/" + fileName);
-            }
-        } else {
-            for (int day = 1; day <= 31; day++) {
-                String formattedDay = String.format("%02d", day);
-                String fileName = formattedDay + " " + month + " " + year + ".xlsx";
-                copyFile(sourcePath, destinationPath + "/" + fileName);
-            }
-        }
+
+
+
+    }
+
+    public static void copyAmCapacityMeeting(String sourcePath, String destinationPath, String month, String year) {
+
+
     }
 
 
