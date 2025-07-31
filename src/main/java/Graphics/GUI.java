@@ -54,7 +54,6 @@ public class GUI extends JFrame {
         // Add a JFile Chooser to retrieve the source path of the file
 
         String sourcePath = FileSelecter.getFileExtension();
-
         // Create a button to copy files
         JButton copyButton = new JButton("Copy Files");
         copyButton.setBounds(50, 100, 250, 30);
@@ -74,7 +73,7 @@ public class GUI extends JFrame {
                 }
 
                 // Call the file copying method (to be implemented)
-              //  FileCopier.copyDailySheet(sourcePath, destinationPath, selectedMonth, enteredYear);
+                FileCopier.copyDailySheet(sourcePath, sourcePath, selectedMonth, enteredYear);
                 System.out.println("Files copied for " + selectedMonth + " " + enteredYear);
             }
         }

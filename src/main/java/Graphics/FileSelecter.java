@@ -1,6 +1,7 @@
 package Graphics;
 
 import javax.swing.JFileChooser;
+import java.io.File;
 
 public class FileSelecter {
 
@@ -17,7 +18,7 @@ public class FileSelecter {
         // Check if the user selected a file
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             // Get the selected file
-            java.io.File selectedFile = fileChooser.getSelectedFile();
+            File selectedFile = fileChooser.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
             return selectedFile.getAbsolutePath();
         } else {
@@ -25,4 +26,5 @@ public class FileSelecter {
         }
         return null; // Return null if no file was selected
     }
+
 }
