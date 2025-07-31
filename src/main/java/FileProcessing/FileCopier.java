@@ -34,17 +34,37 @@ public class FileCopier {
 
         for (int day = 1; day <= daysInMonth; day++) {
             String dayString = String.format("%02d", day);
-
+            String destPath = destinationPath + "/" + dayString + " " + month + " " + year + ".xlsx";
+            copyFile(sourcePath, destPath);
         }
-
 
 
     }
 
     public static void copyAmCapacityMeeting(String sourcePath, String destinationPath, String month, String year) {
 
+        int daysInMonth = CheckMonth.getDaysInMonth(month, year);
+        for (int day = 1; day <= daysInMonth; day++) {
+            String dayString = String.format("%02d", day);
+            String destPath = destinationPath + "/" + dayString + " " + month + year + " AM Capacity Meeting" + ".xlsx";
+            copyFile(sourcePath, destPath);
+        }
+
 
     }
+
+    public static void copyPmCapacityMeeting(String sourcePath, String destinationPath, String month, String year) {
+
+        int daysInMonth = CheckMonth.getDaysInMonth(month, year);
+        for (int day = 1; day <= daysInMonth; day++) {
+            String dayString = String.format("%02d", day);
+            String destPath = destinationPath + "/" + dayString + " " + month + year + " PM Capacity Meeting" + ".xlsx";
+            copyFile(sourcePath, destPath);
+        }
+
+
+    }
+
 
 
 
