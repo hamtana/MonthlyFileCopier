@@ -17,3 +17,21 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+// Build a Jar file
+jar {
+    manifest {
+        attributes 'Main-Class': 'src/main/java/App.java' // Replace with your main class
+    }
+}
+
+
+tasks.register(
+    'run',
+    JavaExec
+) {
+    group = 'application'
+    description = 'Runs the application'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass.set('src/main/java/App.java')
+}

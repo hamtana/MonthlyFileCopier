@@ -27,8 +27,10 @@ public class FileSelecter {
             return selectedFile;
         } else {
             System.out.println("No file selected.");
+            // Throw an exception or return null if no file is selected
+            throw new RuntimeException("No file selected.");
         }
-        return null; // Return null if no file was selected
+
     }
 
 }
