@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group = 'org.example'
@@ -18,20 +19,29 @@ test {
     useJUnitPlatform()
 }
 
-// Build a Jar file
+
+application {
+    mainClass = 'App' // No package, just class name
+}
+
 jar {
     manifest {
-        attributes 'Main-Class': 'src/main/java/App.java' // Replace with your main class
+        attributes 'Main-Class': 'App'
     }
 }
 
+task packageApp(type: Exec) {
+    dependsOn build
 
-tasks.register(
-    'run',
-    JavaExec
-) {
-    group = 'application'
-    description = 'Runs the application'
-    classpath = sourceSets.main.runtimeClasspath
-    mainClass.set('src/main/java/App.java')
+    def outputDir = "$buildDir/jpackage"
+    def inputDir = "$buildDir/libs"
+    def mainJar = "FileCopier-${version}.jar"
+
+    commandLine 'jpackage',
+        '--type', 'app-image',
+        '--input', inputDir,
+        '--dest', outputDir,
+        '--name', 'FileCopier',
+        '--main-jar', mainJar,
+        '--main-class', 'App'
 }

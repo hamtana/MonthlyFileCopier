@@ -53,7 +53,6 @@ public class GUI extends JFrame {
         panel.add(yearTextField);
 
         // Add a JFile Chooser to retrieve the source path of the file
-
         File sourceFile = FileSelecter.getFileExtension();
         String sourcePath = sourceFile.getAbsolutePath();
         String destinationPath = sourceFile.getParent(); // Use the parent directory as the destination
