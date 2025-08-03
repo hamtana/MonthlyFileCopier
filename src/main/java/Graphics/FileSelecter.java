@@ -13,6 +13,9 @@ public class FileSelecter {
         // Set the dialog title
         fileChooser.setDialogTitle("Select a File");
 
+        // Set the current directory to the user's home directory
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+
         // specify the file type as .xlsx
         fileChooser.setFileFilter(new FileNameExtensionFilter("Excel Files", "xlsx"));
 
