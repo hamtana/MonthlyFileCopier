@@ -20,7 +20,7 @@ jobs:
         java-version: '21'  # Ensure it includes jpackage
 
     - name: Install WiX Toolset
-      run: choco install wix --no-progress
+      run: choco install wixtoolset --no-progress
 
     - name: Grant jpackage access to WiX
       run: |
