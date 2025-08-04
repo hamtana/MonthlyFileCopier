@@ -16,8 +16,8 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v4
       with:
-        distribution: 'temurin'
-        java-version: '21'  # Ensure it includes jpackage
+        distribution: 'openjdk'
+        java-version: '8'  # Ensure it includes jpackage
 
     - name: Install WiX Toolset
       run: choco install wixtoolset --no-progress
@@ -28,10 +28,10 @@ jobs:
         echo "PATH=$env:PATH" >> $env:GITHUB_ENV
 
     - name: Build the app
-      run: ./gradlew packageExe
+      run: ./gradlew jar
 
-    - name: Upload EXE artifact
+    - name: Upload Jar artifact
       uses: actions/upload-artifact@v4
       with:
         name: FileCopier-installer
-        path: build/jpackage/*
+        path: build/libs/*
