@@ -24,6 +24,13 @@ application {
     mainClass = 'App' // No package, just class name
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8) // Use Java 8
+    }
+
+}
+
 jar {
     manifest {
         attributes 'Main-Class': 'App'
