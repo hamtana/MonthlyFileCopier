@@ -30,6 +30,7 @@ jar {
     }
 }
 
+
 task packageApp(type: Exec) {
     dependsOn build
 
@@ -44,4 +45,25 @@ task packageApp(type: Exec) {
         '--name', 'FileCopier',
         '--main-jar', mainJar,
         '--main-class', 'App'
+}
+
+task packageExe(type: Exec) {
+    dependsOn build
+
+    def outputDir = "$buildDir/jpackage"
+    def inputDir = "$buildDir/libs"
+    def mainJar = "FileCopier-${version}.jar"
+
+    doFirst {
+        mkdir outputDir
+    }
+
+    commandLine 'jpackage',
+            '--type', 'exe',
+            '--input', inputDir,
+            '--dest', outputDir,
+            '--name', 'FileCopier',
+            '--main-jar', mainJar,
+            '--main-class', 'App',
+            '--win-console'
 }
