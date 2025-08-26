@@ -46,7 +46,7 @@ public class FileCopier {
         int daysInMonth = CheckMonth.getDaysInMonth(month, year);
         for (int day = 1; day <= daysInMonth; day++) {
             String dayString = String.format("%02d", day);
-            String destPath = destinationPath + "/" + dayString + " " + month + year + " AM Capacity Meeting" + ".xlsx";
+            String destPath = destinationPath + "/" + dayString + " " + month + " " + year + " AM Capacity Meeting" + ".xlsx";
             copyFile(sourcePath, destPath);
         }
 
@@ -58,7 +58,7 @@ public class FileCopier {
         int daysInMonth = CheckMonth.getDaysInMonth(month, year);
         for (int day = 1; day <= daysInMonth; day++) {
             String dayString = String.format("%02d", day);
-            String destPath = destinationPath + "/" + dayString + " " + month + year + " PM Capacity Meeting" + ".xlsx";
+            String destPath = destinationPath + "/" + dayString + " " + month + " " + year + " PM Capacity Meeting" + ".xlsx";
             copyFile(sourcePath, destPath);
         }
 
